@@ -39,7 +39,7 @@ Here's a breakdown of the repository's key components:
             LET $semantic_results = (
                 SELECT *, vector::distance::knn() as distance
                 FROM some_table
-                WHERE description_embedding <|5|> $vector_embedding
+                WHERE description_embedding <|5,EUCLIDEAN|> $vector_embedding
                 ORDER BY distance
             );
             RETURN $semantic_results;
